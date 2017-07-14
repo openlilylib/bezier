@@ -1,7 +1,6 @@
 \version "2.18.2"
 \include "oll-core/package.ily"
-\loadModule snippets.notation-snippets.shaping-bezier-curves.shape-tie-column
-%\include "definition.ily"
+\loadModule bezier.shape-tie-column
 
 {
   % Modifying the first and third ties in a chord. () is shorthand for no change

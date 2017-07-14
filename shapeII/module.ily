@@ -1,5 +1,4 @@
 \version "2.17.26"
-\include "ly/_internal/utilities/lilypond-version-predicates.ily"
 
 \header {
   snippet-title = "Improved \shape"
@@ -19,10 +18,10 @@
 #(define (find-value-to-offset prop self alist)
    "Return the first value of the property @var{prop} in the property
                alist @var{alist} @em{after} having found @var{self}."
-(let ((segment (member (cons prop self) alist)))
-  (if (not segment)
-      (assoc-get prop alist)
-      (assoc-get prop (cdr segment)))))
+   (let ((segment (member (cons prop self) alist)))
+     (if (not segment)
+         (assoc-get prop alist)
+         (assoc-get prop (cdr segment)))))
 
 % Return the dir-most head from note-column.
 % TODO: implement in C++ with a Scheme interface.
@@ -60,8 +59,8 @@ shapeII =
             (total-found (length siblings))
             (immutable-props (ly:grob-basic-properties grob))
             (value (find-value-to-offset 'control-points
-                                         shape-curve
-                                         immutable-props))
+                     shape-curve
+                     immutable-props))
             (default-cpts (if (procedure? value)
                               (value grob)
                               value))
@@ -187,7 +186,7 @@ shapeII =
                 ((number-pair? spec)
                  (coord-translate coords spec))
                 ((number-list? spec) ; 2-elem list -> pair:
-                 (coord-translate coords (cons (first spec)(second spec))))
+                  (coord-translate coords (cons (first spec)(second spec))))
                 ((spec-type? spec '(s sym symmetrical))
                  (symmetrical-offset coords spec side))
                 ((spec-type? spec '(a abs absolute))
@@ -257,6 +256,4 @@ shapeII =
            (find-specs-for-current-sibling siblings all-specs)
            (calc-one-sibling (car all-specs)))))
 
-   (if (lilypond-less-than? '(2 19 25))
-       #{ \tweak control-points #shape-curve #item #}
-       (propertyTweak 'control-points shape-curve item)))
+   (propertyTweak 'control-points shape-curve item))

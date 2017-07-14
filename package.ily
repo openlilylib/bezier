@@ -30,3 +30,4 @@
   to use it one or more modules have to be loaded
 %}
 
+\include "_internal/special-cpts-display.ily"

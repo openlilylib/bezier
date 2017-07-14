@@ -3,11 +3,7 @@
 % will probably affect only the first slur in each example.
 
 \include "oll-core/package.ily"
-\loadModules snippets
-#'((notation-snippets shaping-bezier-curves shapeII)
-   (notation-snippets shaping-bezier-curves special-cpts-display))
-%\include "../shapeII.ily"
-%\include "special-cpts-display.ily"
+\loadModule bezier.shapeII
 
 \paper {
   ragged-right = ##t
