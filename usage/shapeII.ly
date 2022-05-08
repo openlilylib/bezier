@@ -1,4 +1,4 @@
-\version "2.17.29"
+\version "2.23.6"
 % Prior to 2.17.29, \shapeII ... Slur (i.e. the non-tweak syntax)
 % will probably affect only the first slur in each example.
 
@@ -660,7 +660,7 @@ separator = \markup \hspace #2
 \markup \justify {
   Since LilyPond 2.17.29, the \italic override-like form will affect
   \italic all subsequent curves of the specified type (see
-  \with-url #"http://code.google.com/p/lilypond/issues/detail?id=3603"
+  \with-url "https://gitlab.com/lilypond/lilypond/-/issues/3603"
   "Issue 3603").  For example, this will move all three slurs up:
 }
 \markup \vspace #0.5
