@@ -476,11 +476,12 @@ separator = \markup \hspace #2
   How angle and radius are measured?  Look at the illustration below:
 }
 {
-  \override Slur #'stencil = #(special-control-points)
+  \override Slur.show-control-points = ##t
   e'1( g' e'')
 }
 \markup \justify {
-  You can see a blue line connecting the ends of the slur.  The length of
+  You can see a thin red line connecting the ends of the slur, hereafter
+  called the slur’s \italic "base line".  The length of
   this line is what we call \italic "slur length", and the angle between
   this line and the horizontal direction is \italic "slur slope".
   In polar coordinates, radius is measured in slur length;
@@ -489,14 +490,14 @@ separator = \markup \hspace #2
 \markup\vspace #0.5
 \markup \justify {
   In the following example, the distance between 1st and 2nd control-points
-  (as well as between 3rd and 4th) "is 0.5 of the" blue line's length,
-  and the red lines (which connect 1st point to the 2nd, and 3rd point
-  to the 4th) are perpendicular to the blue line: \separator
+  (as well as between 3rd and 4th) "is 0.5 of the" base line's length,
+  and the lines which connect the 1st point to the 2nd as well as the 3rd
+  point to the 4th are perpendicular to the base line: \separator
   \small\typewriter "\shapeII #'(()(polar 90 0.5)(polar 90 0.5)())"
 }
 \noPageBreak \markup \vspace #0.2 \noPageBreak
 {
-  \override Slur #'stencil = #(special-control-points)
+  \override Slur.show-control-points = ##t
   e''1( e'')
   \shapeII #'(()(polar 90 0.5)(polar 90 0.5)()) Slur
   e''1( e'')
@@ -507,13 +508,13 @@ separator = \markup \hspace #2
 
 \markup \justify {
   Here's another example, showing how the situation changes depending
-  on the slur slope – notice the 60 degrees angle between the blue
-  and red lines:
+  on the slur slope – notice the 60 degrees angle at the beginning and
+  end of the slur:
 }
 \noPageBreak \markup \vspace #0.3 \noPageBreak
 \markup\small\typewriter"\shapeII #'(()(polar 60 0.5))"
 {
-  \override Slur #'stencil = #(special-control-points)
+  \override Slur.show-control-points = ##t
   <>_\markup \tiny "<----------------(default)--------------->"
   b'1( b')
   d'( g'')
